@@ -1,3 +1,4 @@
+
 # Tasarım Örüntüleri Dokümantasyonu
 
 ## Faz 1: Creational (Yaratımsal) Örüntüler
@@ -16,8 +17,8 @@
 * **Nerede Kullanıldı:** `src/CheckoutFacade.js` dosyasında, sipariş tamamlama (checkout) sürecinde uygulandı.
 * **Neden Seçildi:** Sipariş onaylandığında Stok kontrolü, Ödeme onayı ve Fatura kesimi gibi bağımsız alt sistemlerin sırayla çağrılması gerekiyordu. Bu karmaşıklığı sepet üzerinden (istemci kodundan) gizlemek için seçildi.
 * **Ne Kazanıldı:** İstemci kodu sadece tek bir `completeCheckout()` metodunu çağırarak tüm süreci yönetebilir hale geldi, sınıflar arası karmaşık bağımlılıklar azaltıldı.
-
-  ## Faz 3: Behavioral (Davranışsal) Örüntüler
+  
+## Faz 3: Behavioral (Davranışsal) Örüntüler
 * **Kullanılan Örüntü 1:** Strategy
 * **Nerede Kullanıldı:** `src/DiscountStrategy.js` ve `ShoppingCart.js` içinde uygulandı.
 * **Neden Seçildi:** İndirim hesaplama mantığını if-else bloklarından kurtarmak ve yeni indirim tipleri eklendiğinde sepet sınıfının değiştirilmesini engellemek için kullanıldı.
