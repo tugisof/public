@@ -1,31 +1,37 @@
+const { NoDiscountStrategy } = require('./DiscountStrategy');
+
 class ShoppingCart {
     constructor() {
         this.items = [];
-        this.discountType = null;
+        this.discountStrategy = new NoDiscountStrategy(); // Varsayılan strateji
+        this.observers = []; // Abone listesi
     }
 
+    // Observer Metotları
+    addObserver(observer) {
+        this.observers.push(observer);
+    }
+
+    notifyObservers() {
+        const total = this.items.reduce((sum, price) => sum + price, 0);
+        this.observers.forEach(obs => obs.update(total, this.items.length));
+    }
+
+    // Strategy Metodu
+    setDiscountStrategy(strategy) {
+        this.discountStrategy = strategy;
+    }
+
+    // Sepet İşlemleri
     addItem(price) {
         this.items.push(price);
+        this.notifyObservers(); // Ürün eklenince abonelere haber ver
     }
 
-    setDiscountType(type) {
-        this.discountType = type; 
-    }
-
-    calculateTotal() {
-        let total = this.items.reduce((sum, price) => sum + price, 0);
-
-       
-        if (this.discountType === 'BlackFriday') {
-            total = total * 0.50; // %50 indirim
-        } else if (this.discountType === 'Student') {
-            total = total * 0.90; // %10 indirim
-        } else if (this.discountType === 'Coupon100') {
-            total = total - 100; // 100 TL sabit indirim
-            if (total < 0) total = 0;
-        }
-
-        return total;
+    calculateFinalTotal() {
+        const rawTotal = this.items.reduce((sum, price) => sum + price, 0);
+        // İndirim hesaplamasını stratejiye devret
+        return this.discountStrategy.calculate(rawTotal); 
     }
 }
 
