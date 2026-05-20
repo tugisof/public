@@ -1,0 +1,5 @@
+# AI Log - Faz 3 (Behavioral Örüntüler)
+
+* [cite_start]**Oturum Özeti (Pair Programming):** AI ile yaklaşık 35 dakikalık bir oturum gerçekleştirdim[cite: 86]. E-ticaret sepetinin mevcut "if-else" cehenneminden kurtulması ve Açık/Kapalı prensibine (OCP) uyması için en iyi davranışsal örüntüleri tartıştık. Strateji kalıbını birlikte kodladık.
+* [cite_start]**Soru: AI olmadan bu faz ne kadar sürerdi?** [cite: 89] AI olmadan Behavioral örüntülerin arasındaki ince farkları (örneğin State vs Strategy) araştırmak ve doğru kararı vermek muhtemelen 2-3 saatimi alırdı. Hızlı prototipleme sayesinde bu süreyi çok kısalttım.
+* [cite_start]**Soru: AI sizi nerede yanılttı?** [cite: 89] AI, Observer örüntüsünü kurarken abonelikten çıkma (`removeObserver`) metodunu yazmayı unuttu ve sadece abonelik ekleme kısmına odaklandı. Ayrıca Strategy sınıfında arayüz (interface) kavramı JavaScript'te doğal olarak bulunmadığı için doğrudan boş sınıflar oluşturdu. Bu eksiklikleri fark edip hata fırlatan şablon metotlar ekleyerek kodumu güvenli hale getirdim.
