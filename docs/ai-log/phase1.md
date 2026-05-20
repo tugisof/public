@@ -1,0 +1,3 @@
+AI'a Ne Sordunuz (Prompt) "Sepetteki hardcoded indirim nesnelerinin yaratımını nasıl daha esnek hale getirebilirim? Hangi Creational pattern uygun olur?"
+AI Ne Yanıtladı (Özet) İndirim nesnelerinin üretimini sepetin içinden çıkarıp merkezi bir `DiscountFactory` sınıfına taşımayı (Factory Method) önerdi. Böylece sepet sınıfı hangi indirim sınıfının `new` anahtar kelimesiyle oluşturulacağını bilmek zorunda kalmayacak.
+Ne Uyguladım ve Neden AI'ın önerdiği Factory Method örüntüsünü uyguladım. Farklı olarak, `null` referans hatalarını engellemek için `NoDiscount` adında varsayılan bir (Null Object) sınıfı ekleyerek yapıyı daha güvenli hale getirdim.
