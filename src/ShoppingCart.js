@@ -15,13 +15,13 @@ class ShoppingCart {
     calculateTotal() {
         let total = this.items.reduce((sum, price) => sum + price, 0);
 
-        // KÖTÜ TASARIM: Her yeni indirim kuralında bu metodun değişmesi gerekir
+       
         if (this.discountType === 'BlackFriday') {
-            total = total * 0.50; 
+            total = total * 0.50; // %50 indirim
         } else if (this.discountType === 'Student') {
-            total = total * 0.90; 
+            total = total * 0.90; // %10 indirim
         } else if (this.discountType === 'Coupon100') {
-            total = total - 100; 
+            total = total - 100; // 100 TL sabit indirim
             if (total < 0) total = 0;
         }
 
